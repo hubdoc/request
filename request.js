@@ -1236,6 +1236,7 @@ Request.prototype.oauth = function (_oauth) {
 
   oa.oauth_signature_method = oa.oauth_signature_method || 'HMAC-SHA1'
 
+  // consumer secret should be an rsa cert if using RSA-SHA1
   var consumer_secret = oa.oauth_consumer_secret
   delete oa.oauth_consumer_secret
   var token_secret = oa.oauth_token_secret
