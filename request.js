@@ -1234,7 +1234,7 @@ Request.prototype.oauth = function (_oauth) {
   if (!oa.oauth_timestamp) oa.oauth_timestamp = Math.floor( Date.now() / 1000 ).toString()
   if (!oa.oauth_nonce) oa.oauth_nonce = uuid().replace(/-/g, '')
 
-  oa.oauth_signature_method = 'HMAC-SHA1'
+  oa.oauth_signature_method = oa.oauth_signature_method || 'HMAC-SHA1'
 
   var consumer_secret = oa.oauth_consumer_secret
   delete oa.oauth_consumer_secret
@@ -1243,7 +1243,8 @@ Request.prototype.oauth = function (_oauth) {
   var timestamp = oa.oauth_timestamp
 
   var baseurl = this.uri.protocol + '//' + this.uri.host + this.uri.pathname
-  var signature = oauth.hmacsign(this.method, baseurl, oa, consumer_secret, token_secret)
+  var signature_method_prefix = /(\S+)-/i.exec(oa.oauth_signature_method)[1].toLowerCase() 
+  var signature = oauth[signature_method_prefix + 'sign'](this.method, baseurl, oa, consumer_secret, token_secret)
 
   // oa.oauth_signature = signature
   for (var i in form) {
