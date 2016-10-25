@@ -1320,7 +1320,10 @@ Request.prototype.pipe = function (dest, opts) {
 }
 Request.prototype.write = function () {
   if (!this._started) this.start()
-  return this.req.write.apply(this.req, arguments)
+  // XXX: Dave S: See https://github.com/request/request/issues/2120
+  if (this.req) {
+    return this.req.write.apply(this.req, arguments)
+  }
 }
 Request.prototype.end = function (chunk) {
   if (chunk) this.write(chunk)
