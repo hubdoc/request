@@ -670,7 +670,13 @@ Request.prototype.start = function () {
   delete reqOptions.auth
 
   debug('make request', self.uri.href)
-  self.req = self.httpModule.request(reqOptions, self.onResponse.bind(self))
+  // XXX Dave S: See https://github.com/request/request/issues/2120
+  try {
+    self.req = self.httpModule.request(reqOptions, self.onResponse.bind(self))
+  } catch (err) {
+    self.emit('error', err)
+    return
+  }
 
   if (self.timeout && !self.timeoutTimer) {
     self.timeoutTimer = setTimeout(function () {
@@ -1319,7 +1325,10 @@ Request.prototype.write = function () {
 Request.prototype.end = function (chunk) {
   if (chunk) this.write(chunk)
   if (!this._started) this.start()
-  this.req.end()
+  // XXX Dave S: See https://github.com/request/request/issues/2120
+  if (this.req) {
+    this.req.end()
+  }
 }
 Request.prototype.pause = function () {
   if (!this.response) this._paused = true
