@@ -1,5 +1,5 @@
 {
-  "name": "@hubdoc/request",
+  "name": "request",
   "description": "Simplified HTTP request client.",
   "tags": [
     "http",
