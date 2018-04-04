@@ -1,14 +1,8 @@
-try {
-  require('tough-cookie')
-} catch (e) {
-  console.error('tough-cookie must be installed to run this test.')
-  console.error('skipping this test. please install tough-cookie and run again if you need to test this feature.')
-  process.exit(0)
-}
-
 var server = require('./server')
   , assert = require('assert')
   , request = require('../index')
+  , Cookie = require('cookie-jar')
+  , Jar = Cookie.Jar
   ;
 
 var s = server.createServer()
@@ -51,8 +45,8 @@ s.listen(s.port, function () {
   }
 
   // Permanent bounce
-  var jar = request.jar()
-  jar.setCookie('quux=baz', server);
+  var jar = new Jar()
+  jar.add(new Cookie('quux=baz'))
   request({uri: server+'/perm', jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {
     if (er) throw er
     if (res.statusCode !== 200) throw new Error('Status is not 200: '+res.statusCode)
