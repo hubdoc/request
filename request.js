@@ -14,7 +14,7 @@ var http = require('http')
   , httpSignature = require('http-signature')
   , uuid = require('node-uuid')
   , mime = require('mime')
-  , tunnel = require('tunnel-agent')
+  , tunnel = require('@hubdoc/tunnel-agent')
   , _safeStringify = require('json-stringify-safe')
 
   , ForeverAgent = require('forever-agent')

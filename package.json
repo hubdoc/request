@@ -1,5 +1,5 @@
 {
-  "name": "request",
+  "name": "@hubdoc/request",
   "description": "Simplified HTTP request client.",
   "tags": [
     "http",
@@ -21,6 +21,7 @@
   ],
   "main": "index.js",
   "dependencies": {
+    "@hubdoc/tunnel-agent": "^0.3.0",
     "aws-sign": "~0.3.0",
     "cookie-jar": "~0.3.0",
     "forever-agent": "~0.5.0",
@@ -31,8 +32,7 @@
     "mime": "~1.2.9",
     "node-uuid": "~1.4.0",
     "oauth-sign": "~0.3.0",
-    "qs": "~0.6.0",
-    "tunnel-agent": "git+ssh://git@github.com/hubdoc/tunnel-agent.git#node4upgrade"
+    "qs": "~0.6.0"
   },
   "scripts": {
     "test": "node tests/run.js"
