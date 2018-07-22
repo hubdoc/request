@@ -34,6 +34,9 @@
     "oauth-sign": "~0.3.0",
     "qs": "~0.6.0"
   },
+  "publishConfig": {
+    "registry": "https://hubdoc.jfrog.io/hubdoc/api/npm/npm-local/"
+  },
   "scripts": {
     "test": "node tests/run.js"
   }
