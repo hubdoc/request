@@ -33,7 +33,7 @@
     "form-data": "0.1.4",
     "tunnel-agent": "0.3.0",
     "http-signature": "0.10.1",
-    "oauth-sign": "git+ssh://git@github.com/hubdoc/oauth-sign.git",
+    "oauth-sign": "git+ssh://git@github.com/mikeal/oauth-sign.git#0b034206316132f57e26970152c2fb18e71bddd5",
     "hawk": "1.0.0",
     "aws-sign2": "0.5.0"
   },
