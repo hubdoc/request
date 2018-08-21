@@ -7,7 +7,7 @@
     "util",
     "utility"
   ],
-  "version": "2.34.1-hubdoc-oauth-rsa",
+  "version": "2.34.1a-hubdoc-oauth-rsa",
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com>",
   "repository": {
     "type": "git",
