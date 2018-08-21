@@ -7,7 +7,7 @@
     "util",
     "utility"
   ],
-  "version": "2.34.2",
+  "version": "2.34.1-hubdoc-oauth-rsa",
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com>",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "form-data": "0.1.4",
     "tunnel-agent": "0.3.0",
     "http-signature": "0.10.1",
-    "oauth-sign": "0.8.2",
+    "oauth-sign": "0.8.2-hubdoc-oauth-rsa",
     "hawk": "1.0.0",
     "aws-sign2": "0.5.0"
   },
